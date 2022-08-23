@@ -1,3 +1,5 @@
+$(document).ready(readyNow);
+
 const employees = [
   {
     name: 'Atticus',
@@ -40,7 +42,6 @@ const employees = [
 // Ask questions when you don't.
 
 console.log( employees );
-console.log(employees[0].employeeNumber.length);
 // ## Processing Employee Bonuses
 
 // Loop over the `employees` array and do the following:
@@ -82,27 +83,28 @@ function bonusCalculator() {
       }
 
       employeeBonus.bonusPercentage = bonusPercentage; // * The `bonusPercentage` property should contain the bonus percentage the employee is to receive. See section below for calculation instructions.
-      
-
       employeeBonus.totalBonus = Math.round(employee.annualSalary * bonusPercentage) ; // * The `totalBonus` should be the employee's total bonus rounded to the nearest dollar.
       employeeBonus.totalCompensation = employee.annualSalary + employeeBonus.totalBonus; // * The `totalCompensation` property should be the adjusted annual compensation (base annual + bonus)
 
+   
+      displayEmployeeBonus(employeeBonus);
+      
 
+      
       return employeeBonus; // returns a new **object** with the following properties:
 
     }
-    console.log (employeeBonusCalc(employee)); // * `console.log` the results of each iteration.
+  console.log (employeeBonusCalc(employee)); // * `console.log` the results of each iteration.
   }
 }
-
-
-// function employeeBonusDisplay() {//probably needs to be nested
-//   let el = $( '#ouput' );
-//   el.empty();
-//   el.append(`Name: ${employeeBonus.name}, Bonus Percentage: ${employeeBonus.bonusPercentage}, Total Bonus: ${employeeBonus.totalBonus}, Total Compensation: ${employeeBonus.totalCompensation}` ); //what does the h3 become? 
-// }
-
-
+function displayEmployeeBonus(theEmployee){
+  $( '#output' ).append(
+    `Name: ${theEmployee.name}, 
+    Bonus Percentage: ${theEmployee.bonusPercentage}, 
+    Total Bonus: ${theEmployee.totalBonus}, 
+    Total Compensation: ${theEmployee.totalCompensation}` 
+  );
+}
 // ### Individual Bonus calculation
 // - Those who have a rating of a 2 or below should not receive a bonus.
 // - Those who have a rating of a 3 should receive a base bonus of 4% of their base annual income.
@@ -121,7 +123,6 @@ function bonusCalculator() {
 // - Then style the output, making it visually appealing.
 
 function readyNow (){
-  $( '#bonus').on('click', bonusCalculator())
-
+  console.log('JQ');
+  $('#bonus').on('click', bonusCalculator);
 }
-$(document).ready(readyNow);
