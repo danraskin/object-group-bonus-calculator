@@ -98,11 +98,12 @@ function bonusCalculator() {
   }
 }
 function displayEmployeeBonus(theEmployee){
-  $( '#output' ).append(
-    `Name: ${theEmployee.name}, 
-    Bonus Percentage: ${theEmployee.bonusPercentage}, 
-    Total Bonus: ${theEmployee.totalBonus}, 
-    Total Compensation: ${theEmployee.totalCompensation}` 
+  for(let i=1; i < 6; i++)
+  $( `#output${i}` ).append(
+    `<li>Name: ${theEmployee.name}</li> 
+    <li>Bonus Percentage: ${theEmployee.bonusPercentage}</li> 
+    <li>Total Bonus: ${theEmployee.totalBonus}</li> 
+    <li>Total Compensation: ${theEmployee.totalCompensation}</li>` 
   );
 }
 // ### Individual Bonus calculation
